@@ -36,7 +36,7 @@ Based on these two types of probability we need to build HHM model like this.
 
 First, we need a network(2d-array) with size of n X m when n  is the number of tags and m is the number of words in a sentence.
 
-To find the current tag we should calculate ARGMAX($v_{s \in TAGS}(k+1, tag_{k-1}) = v_{s \in TAGS}(k, tag_{k-1}) * P(Tag_{k} | Tag_{k - 1}) * P(word|Tag_{k})$).
+To find the current tag we should calculate ARGMAX(𝑣𝑠∈𝑇𝐴𝐺𝑆(𝑘+1,𝑡𝑎𝑔𝑘−1)=𝑣𝑠∈𝑇𝐴𝐺𝑆(𝑘,𝑡𝑎𝑔𝑘−1)∗𝑃(𝑇𝑎𝑔𝑘|𝑇𝑎𝑔𝑘−1)∗𝑃(𝑤𝑜𝑟𝑑|𝑇𝑎𝑔𝑘)).
 
 After we find the argmax  past tag of $V_{s \in TAGS}(k+1, tag_{k-1})$ we should connect the current tag and the argmax past tag to construct network.
 
