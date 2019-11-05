@@ -26,8 +26,8 @@ However, these assumptions are not usually true. We are making this assumptions 
 
 There are 2 types of probability we need to calculate before apply HHM
 
-1. $P(Tag_{k} | Tag_{k - 1})$ The conditional probability of the current tag depend on the last tag(Transition probability)
-2. $P(Word | Tag)$ The conditional probability of the current word depend on the current tags(Emission probability)
+1. 𝑃(𝑇𝑎𝑔𝑘|𝑇𝑎𝑔𝑘−1)The conditional probability of the current tag depend on the last tag(Transition probability)
+2. P(Word | Tag) The conditional probability of the current word depend on the current tags(Emission probability)
 
 Based on these two types of probability we need to build HHM model like this.
 
@@ -36,9 +36,11 @@ Based on these two types of probability we need to build HHM model like this.
 
 First, we need a network(2d-array) with size of n X m when n  is the number of tags and m is the number of words in a sentence.
 
-To find the current tag we should calculate ARGMAX(𝑣𝑠∈𝑇𝐴𝐺𝑆(𝑘+1,𝑡𝑎𝑔𝑘−1)=𝑣𝑠∈𝑇𝐴𝐺𝑆(𝑘,𝑡𝑎𝑔𝑘−1)∗𝑃(𝑇𝑎𝑔𝑘|𝑇𝑎𝑔𝑘−1)∗𝑃(𝑤𝑜𝑟𝑑|𝑇𝑎𝑔𝑘)).
+To find the current tag we should calculate 
 
-After we find the argmax  past tag of $V_{s \in TAGS}(k+1, tag_{k-1})$ we should connect the current tag and the argmax past tag to construct network.
+ARGMAX(𝑣𝑠∈𝑇𝐴𝐺𝑆(𝑘+1,𝑡𝑎𝑔𝑘−1)=𝑣𝑠∈𝑇𝐴𝐺𝑆(𝑘,𝑡𝑎𝑔𝑘−1)∗𝑃(𝑇𝑎𝑔𝑘|𝑇𝑎𝑔𝑘−1)∗𝑃(𝑤𝑜𝑟𝑑|𝑇𝑎𝑔𝑘)).
+
+After we find the argmax  past tag of 𝑉𝑠∈𝑇𝐴𝐺𝑆(𝑘+1,𝑡𝑎𝑔𝑘−1) we should connect the current tag and the argmax past tag to construct network.
 
 After modeling the network, we need find argmax node locating at the last column and we need to backtrack our nodes through connection we built.
 
